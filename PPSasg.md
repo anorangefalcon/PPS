@@ -610,51 +610,60 @@ Output:
 ![](https://i.imgur.com/lw5xjQb.png)
 ### 23) Multiplication of matrices:
 ```C
-#include<stdio.h>                                                                                                         
-void main()                                                                                                               
-{                                                                                                                         
-int a[3][3],b[3][3],c[3][3],i,j,k;                                                                                        
-int sum=0;                                                                                                                
-printf("Enter the first matrix:\n");                                                                                      
-for(i=0;i<3;i++)                                                                                                          
-{                                                                                                                         
-for(j=0;j<3;j++)                                                                                                          
-{                                                                                                                         
-scanf("%d",&a[i][j]);                                                                                                     
-}                                                                                                                         
-}                                                                                                                         
-printf("Enter the sceond matrix:\n");                                                                                     
-for(i=0;i<3;i++)                                                                                                          
-{                                                                                                                         
-for(j=0;j<3;j++)                                                                                                          
-{                                                                                                                         
-scanf("%d",&b[i][j]);                                                                                                     
-}                                                                                                                         
-}                                                                                                                         
-for(i=0;i<3;i++)                                                                                                          
-{                                                                                                                         
-for(j=0;j<3;j++)                                                                                                          
-{                                                                                                                         
-sum=0;                                                                                                                    
-for(k=0;k<3;k++)                                                                                                          
-{                  
-sum=sum+a[i][j]*b[i][j];                                                                                                  
-c[i][j]=sum;                                                                                                              
-}                                                                                                                         
-}                                                                                                                         
-                                                                                                                          
-}                                                                                                                         
-printf("The multiplication of two matrices is:\n");                                                                       
-for(i=0;i<3;i++)                                                                                                          
-{                                                                                                                         
-for(j=0;j<3;j++)                                                                                                          
-{                                                                                                                         
-printf("\t%d",c[i][j]);                                                                                                   
-}                                                                                                                         
-printf("\n"); 
-}
-}
+/* Multiplation of matrices */
 
+#include <stdio.h>
+int main()
+     {
+      int m, n, p, q, c, d, k, sum = 0;
+      int first[10][10], second[10][10],   multiply[10][10];
+ 
+  printf("Enter number of rows and columns of first matrix\n");
+  scanf("%d%d", &m, &n);
+  
+  printf("Enter elements of first matrix\n");
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      scanf("%d", &first[c][d]);
+ 
+  printf("Enter number of rows and columns of second matrix\n");
+  scanf("%d%d", &p, &q);
+ 
+  if (n != p)
+    printf("The matrices can't be multiplied with each other.\n");
+  
+  else
+  {
+    printf("Enter elements of second matrix\n");
+ 
+for (c=0;c<p;c++)
+      for (d = 0; d < q; d++)
+        scanf("%d", &second[c][d]);
+ 
+  for (c = 0; c < m; c++) {
+      for (d = 0; d < q; d++) {
+        for (k = 0; k < p; k++) {
+          sum = sum + first[c][k]*second[k][d];
+        }
+ 
+   multiply[c][d] = sum;
+        sum = 0;
+      }
+    }
+ 
+   printf("Product of the matrices:\n");
+ 
+   for (c = 0; c < m; c++) {
+      for (d = 0; d < q; d++)
+        printf("%d\t", multiply[c][d]);
+ 
+   printf("\n");
+    }
+  }
+ 
+  return 0;
+}
 ```
 Output:
 ![](https://i.imgur.com/tPEZuNc.png)
